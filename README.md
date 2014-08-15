@@ -1,5 +1,4 @@
-Simple Todo List - android app
-(simple-todo-list)
+(Simple Todo List - android app)
 ================
 
 Simple Todo List is a basic android app built as a prework for the Android bootcamp. The project was described on 
@@ -11,6 +10,7 @@ The app allows building a todo list and basic management functionality for todo 
 2.	User can add a new todo item to the list by specify todo name and clicking “Add” button. If user tries to save a todo with blank name then message (toast) is displayed and nothing saved
 3.	User can remove existing todo item from the list using long click. Todo is marked as deleted in DB and cleared from the list. User can not un-delete the deleted todo
 4.	User can edit a todo item name.
+
 -	Todo list item click bring Edit Todo Name dialog. So user can edit and then cancel or save changes to the todo name.
 -	Saving blank name is not allowed. Clearing the name to blank will bring error message. If user tries to save an empty name then dialog will close and “not saved” message is displayed as toast.
 
