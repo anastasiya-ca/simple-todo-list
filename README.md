@@ -1,4 +1,4 @@
-(Simple Todo List - android app)
+Simple Todo List - android app
 ================
 
 Simple Todo List is a basic android app built as a prework for the Android bootcamp. The project was described on 
