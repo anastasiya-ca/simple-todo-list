@@ -2,7 +2,7 @@ Simple Todo List - android app
 ================
 
 Simple Todo List is a basic android app built as a prework for the Android bootcamp. The project was described on 
-![Android Bootcamp Pre-work](https://www.github.com/nesquena/843228e83fdc4f5ddc4e)
+[Android Bootcamp Pre-work](https://gist.github.com/nesquena/843228e83fdc4f5ddc4e)
 
 The app allows building a todo list and basic management functionality for todo items including add new, edit and delete an existing todo. The built app is an extension of basic app requested and includes the following functionality:
 
