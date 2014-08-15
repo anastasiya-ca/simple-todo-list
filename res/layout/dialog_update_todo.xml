@@ -6,7 +6,7 @@
     
     <EditText
         android:id="@+id/etItemName"
-        android:inputType="text"
+        android:inputType="textNoSuggestions"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"

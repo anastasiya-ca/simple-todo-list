@@ -8,6 +8,7 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
@@ -74,14 +75,13 @@ public class UpdateTodoFragment extends DialogFragment {
 			public void beforeTextChanged(CharSequence s, int start, int count,
 					int after) {
 				// TODO Auto-generated method stub
-
 			}
 
 			@Override
 			public void onTextChanged(CharSequence s, int start, int before,
 					int count) {
 				// if name is empty notify user
-				if (s.toString().trim().isEmpty()){
+				if (etTodoName.getText().toString().trim().isEmpty()){
 				etTodoName.setError("Name can not be blank", getResources()
 						.getDrawable(R.drawable.ic_action_error));
 				}

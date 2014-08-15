@@ -30,6 +30,7 @@
 	        android:id="@+id/etNewItem"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
+	        android:inputType="textNoSuggestions"
 	        android:ems="10"
 	        android:layout_weight="3"
 	        android:hint="@string/add_new_item_hint" >
