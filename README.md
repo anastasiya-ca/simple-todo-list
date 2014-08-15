@@ -17,6 +17,8 @@ The app allows building a todo list and basic management functionality for todo 
 The app was tested on HTC One (Android 4.1.2) and on android virtual devices.
 
 Walkthrough of implemeted user stories:
+
+
 ![Video Walkthrough](simple_todo_app_demo.gif)
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
@@ -29,7 +31,7 @@ The app is different from the basic spec in the following aspects:
 -	Custom ArrayList Adapter is used to populate todo items ListView. 
 -	SQLite is used for persisting data
 
-Point to consider for future development:
+Points to consider for future development:
 -	Fix issue with error message appearing while word is suggested with spell-check on.
 -	Marking completion 
 -	Setting priority
