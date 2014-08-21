@@ -8,15 +8,11 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
-import android.widget.SeekBar;
-import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.SeekBar.OnSeekBarChangeListener;
 
 public class UpdateTodoFragment extends DialogFragment {
 
@@ -42,8 +38,8 @@ public class UpdateTodoFragment extends DialogFragment {
 		// and return it
 		
 		imm = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
-
-		AlertDialog.Builder builder = new AlertDialog.Builder(context);
+		
+		AlertDialog.Builder builder = new AlertDialog.Builder(context, R.style.MyAlertDialog);
 		LayoutInflater inflater = (LayoutInflater) context
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
@@ -120,7 +116,7 @@ public class UpdateTodoFragment extends DialogFragment {
 
 					}
 				});
-
+		
 		return builder.create();
 
 	}
@@ -128,4 +124,18 @@ public class UpdateTodoFragment extends DialogFragment {
 	private void closeInputFromWindow() {
 		imm.hideSoftInputFromWindow(etTodoName.getWindowToken(), 0);
 	}
+	
+	@Override
+    public void onStart() {
+        super.onStart();
+        
+        int titleDividerId = getResources().getIdentifier("titleDivider", "id", "android");
+		Dialog dialog = this.getDialog();
+		View titleDividerView = dialog.findViewById(titleDividerId);
+		if (titleDividerView != null){
+			titleDividerView.setBackgroundColor(getResources().getColor(R.color.custom_actionbar_color));
+		}
+
+    }
+	
 }

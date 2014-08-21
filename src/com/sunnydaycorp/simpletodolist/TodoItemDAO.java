@@ -23,7 +23,8 @@ public class TodoItemDAO {
 		// Get cursor with all active todos info
 		SQLiteDatabase db = localDB.getReadableDatabase();
 		Cursor todosCursor = db.query(TodoItemTable.TABLE_NAME, columnNames, TodoItemTable.STATUS_COL_NAME + "='"
-				+ TodoItem.Status.ACTIVE.toString() + "'", null, null, null, null);
+				+ TodoItem.Status.ACTIVE.toString() + "' OR " + TodoItemTable.STATUS_COL_NAME + "='"
+				+ TodoItem.Status.DONE.toString() + "'", null, null, null, null);
 
 		if (todosCursor.getCount() > 0) {
 			todosCursor.moveToFirst();
@@ -83,6 +84,29 @@ public class TodoItemDAO {
 		db.setTransactionSuccessful();
 		transactionStatus = true;
 		db.endTransaction();
+
+		return transactionStatus;
+		
+	}
+	
+	public boolean updateTodoItemCompletionStaus (long id, TodoItem.Status status){
+		
+		boolean transactionStatus = false;
+		
+		if (status == TodoItem.Status.DONE || status == TodoItem.Status.ACTIVE){
+
+			// Update status to DONE or ACTIVE for the todo
+			SQLiteDatabase db = localDB.getWritableDatabase();
+			db.beginTransaction();
+			
+			ContentValues values = new ContentValues();
+			values.put(TodoItemTable.STATUS_COL_NAME, status.toString());
+			
+			db.update(TodoItemTable.TABLE_NAME, values, TodoItemTable.ID_COL_NAME + "=" + id, null);
+			db.setTransactionSuccessful();
+			transactionStatus = true;
+			db.endTransaction();
+		}
 
 		return transactionStatus;
 		

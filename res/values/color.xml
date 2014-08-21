@@ -2,8 +2,11 @@
 <resources>
     
     <color name="custom_dark_background_color">#C0C0C0</color>
-    <color name="custom_background_color">#FFFFFF</color>
+    <color name="custom_background_color">#fff3f3f3</color>
+    <color name="custom_button_bar_background_color">#fff3f3f3</color>
     <color name="custom_actionbar_color">#336699</color>
     <color name="custom_actionbar_text_color">#FFFFFF</color>
+    <color name="custom_completed_todo_text_color">#808080</color>
+    <color name="custom_text_color">#000000</color>
     
 </resources>

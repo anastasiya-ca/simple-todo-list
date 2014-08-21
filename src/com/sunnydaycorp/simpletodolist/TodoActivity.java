@@ -7,7 +7,6 @@ import android.app.DialogFragment;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
@@ -32,8 +31,7 @@ public class TodoActivity extends Activity {
 
 		@Override
 		public void onTodoUpdated(DialogInterface dialog, long id) {
-			todoItems = todoItemDAO.getTodoItemList();
-			adapter.updateTodoListData(todoItems);	
+			adapter.updateTodoListData();	
 		}	
 
 	};
@@ -78,8 +76,7 @@ public class TodoActivity extends Activity {
 				// deleted todo item from data - set status as deleted
 				todoItemDAO.deleteTodoItem(id);
 				// refresh ListView
-				todoItems = todoItemDAO.getTodoItemList();
-				adapter.updateTodoListData(todoItems);
+				adapter.updateTodoListData();
 				return true;
 			}
 	
@@ -106,8 +103,7 @@ public class TodoActivity extends Activity {
 			//  if not empty name then save new todo
 			todoItemDAO.saveNewTodoItem(name);
 			// refresh ListView
-			todoItems = todoItemDAO.getTodoItemList();
-			adapter.updateTodoListData(todoItems);
+			adapter.updateTodoListData();
 			//clean EditText field
 			etNewItemName.setText("");
 			etNewItemName.clearFocus();
