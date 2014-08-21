@@ -6,8 +6,8 @@ Simple Todo List is a basic android app built as a prework for the Android bootc
 
 The app allows building a todo list and basic  todo items management functionality including adding new todo, marking todo as completed, editing and deleting an existing todo. The built app is an extension of basic app requested and includes the following functionality:
 
-* [x]	User can view the list of all todo items (required). Active and completed todos are displayed as opposed to deleted
-* [x]	User can mark a todo item as completed/not completed (optional). Completed todo is formated differently, remains in the list and can be eddited or deleted.
+* [x]	User can view the list of all todo items. Active and completed todos are displayed as opposed to deleted
+* [x]	User can mark a todo item as completed/not completed. Completed todo is formated differently, remains in the list and can be eddited or deleted.
 * [x]	User can add a new todo item to the list by specify todo name and clicking “Add” button. If user tries to save a todo with blank name then message (toast) is displayed and nothing is saved
 * [x]	User can remove existing todo item from the list by doing a long click on the relevant item in the list. Todo is marked as deleted in DB and cleared from the list. User can not restore deleted todo.
 * [x]	User can edit a todo item name. Todo list item click bring Edit Todo Name dialog. So user can edit and then cancel or save changes to the todo name. Saving blank name is not allowed. Clearing the name to blank will bring error message. If user tries to save an empty name then dialog will close and “not saved” message is displayed as toast.
