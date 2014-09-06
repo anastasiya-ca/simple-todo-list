@@ -31,6 +31,6 @@ The app is different from the basic spec in the following aspects:
 -	SQLite is used for persisting data
 
 Points to consider for future development:
--	Fix issue with error message appearing while word is suggested with spell-check on.
 -	Setting priority
+-	Labels
 
