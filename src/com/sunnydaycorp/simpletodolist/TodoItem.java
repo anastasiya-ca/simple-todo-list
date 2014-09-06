@@ -1,7 +1,7 @@
 package com.sunnydaycorp.simpletodolist;
 
 public class TodoItem {
-	
+
 	private long id = 0;
 	private String name;
 	private int priority = 0;

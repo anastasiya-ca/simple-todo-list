@@ -5,9 +5,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteDatabase.CursorFactory;
 import android.database.sqlite.SQLiteOpenHelper;
 
-
 public class SimpleTodoListDB extends SQLiteOpenHelper {
-	
+
 	private static final String DB_NAME = "simpleTodoListDB";
 	private static final int DB_VERSION = 1;
 	private static SimpleTodoListDB simpleTodoListDB = null;
@@ -45,12 +44,16 @@ public class SimpleTodoListDB extends SQLiteOpenHelper {
 	private void dropTables(SQLiteDatabase db) {
 		db.execSQL(TodoItemTable.getDropTableSQL());
 	}
-	
+
 	private void insertTestData(SQLiteDatabase db) {
-		db.execSQL(TodoItemTable.getInsertNewTodoSQL("Pack Bag", 1, TodoItem.Status.ACTIVE.toString()));
-		db.execSQL(TodoItemTable.getInsertNewTodoSQL("Buy Milk", 2, TodoItem.Status.ACTIVE.toString()));
-		db.execSQL(TodoItemTable.getInsertNewTodoSQL("Pickup Laundry", 3, TodoItem.Status.ACTIVE.toString()));
-		db.execSQL(TodoItemTable.getInsertNewTodoSQL("Clean Dishes", 4, TodoItem.Status.ACTIVE.toString()));	
+		db.execSQL(TodoItemTable.getInsertNewTodoSQL("Pack Bag", 1,
+				TodoItem.Status.ACTIVE.toString()));
+		db.execSQL(TodoItemTable.getInsertNewTodoSQL("Buy Milk", 2,
+				TodoItem.Status.ACTIVE.toString()));
+		db.execSQL(TodoItemTable.getInsertNewTodoSQL("Pickup Laundry", 3,
+				TodoItem.Status.ACTIVE.toString()));
+		db.execSQL(TodoItemTable.getInsertNewTodoSQL("Clean Dishes", 4,
+				TodoItem.Status.ACTIVE.toString()));
 	}
 
 }
