@@ -5,6 +5,7 @@ import android.app.Dialog;
 import android.app.DialogFragment;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.DialogInterface.OnShowListener;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -12,6 +13,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -19,6 +21,7 @@ public class UpdateTodoFragment extends DialogFragment {
 
 	private OnTodoUpdatedListener onTodoUpdatedListener = null;
 	private EditText etTodoName = null;
+	private Button btnSave = null;
 	private Context context = null;
 	private long todoId = 0;
 	private TodoItemDAO todoItemDAO = null;
@@ -41,7 +44,7 @@ public class UpdateTodoFragment extends DialogFragment {
 		imm = (InputMethodManager) context
 				.getSystemService(Context.INPUT_METHOD_SERVICE);
 
-		AlertDialog.Builder builder = new AlertDialog.Builder(context,
+		final AlertDialog.Builder builder = new AlertDialog.Builder(context,
 				R.style.MyAlertDialog);
 		LayoutInflater inflater = (LayoutInflater) context
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -83,11 +86,17 @@ public class UpdateTodoFragment extends DialogFragment {
 				if (etTodoName.getText().toString().trim().isEmpty()) {
 					etTodoName.setError("Name can not be blank", getResources()
 							.getDrawable(R.drawable.ic_action_error));
+					if (btnSave != null) {
+						btnSave.setEnabled(false);
+					}
 				} else {
 					etTodoName.setError(null);
+					if (btnSave != null) {
+						btnSave.setEnabled(true);
+					}
 				}
-			}
 
+			}
 		});
 
 		builder.setTitle(R.string.dialog_update_todo_title);
@@ -99,18 +108,11 @@ public class UpdateTodoFragment extends DialogFragment {
 
 						String name = etTodoName.getText().toString().trim();
 
-						if (name.equals("")) {
+						if (!name.isEmpty()) {
+							todoItemDAO.updateTodoItem(todoId, name);
 							closeInputFromWindow();
-							Toast.makeText(
-									context,
-									"Empty name is not allowed. No changes saved",
-									Toast.LENGTH_SHORT).show();
-							return;
+							onTodoUpdatedListener.onTodoUpdated(dialog, todoId);
 						}
-
-						todoItemDAO.updateTodoItem(todoId, name);
-						closeInputFromWindow();
-						onTodoUpdatedListener.onTodoUpdated(dialog, todoId);
 					}
 				});
 
@@ -139,11 +141,16 @@ public class UpdateTodoFragment extends DialogFragment {
 		int titleDividerId = getResources().getIdentifier("titleDivider", "id",
 				"android");
 		Dialog dialog = this.getDialog();
+
+		// update Title styling
 		View titleDividerView = dialog.findViewById(titleDividerId);
 		if (titleDividerView != null) {
 			titleDividerView.setBackgroundColor(getResources().getColor(
 					R.color.custom_actionbar_color));
 		}
+
+		// initialize btnSave
+		btnSave = ((AlertDialog) dialog).getButton(AlertDialog.BUTTON_POSITIVE);
 
 	}
 
