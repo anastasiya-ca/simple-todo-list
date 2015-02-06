@@ -7,6 +7,7 @@
     <color name="custom_actionbar_color">#336699</color>
     <color name="custom_actionbar_text_color">#FFFFFF</color>
     <color name="custom_completed_todo_text_color">#808080</color>
+    <color name="custom_active_todo_text_color">#000000</color>
     <color name="custom_text_color">#000000</color>
     
 </resources>

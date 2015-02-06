@@ -13,11 +13,12 @@ public final class R {
     public static final class color {
         public static final int custom_actionbar_color=0x7f040003;
         public static final int custom_actionbar_text_color=0x7f040004;
+        public static final int custom_active_todo_text_color=0x7f040006;
         public static final int custom_background_color=0x7f040001;
         public static final int custom_button_bar_background_color=0x7f040002;
         public static final int custom_completed_todo_text_color=0x7f040005;
         public static final int custom_dark_background_color=0x7f040000;
-        public static final int custom_text_color=0x7f040006;
+        public static final int custom_text_color=0x7f040007;
     }
     public static final class dimen {
         /**  Default screen margins, per the Android Design guidelines. 
@@ -58,13 +59,14 @@ public final class R {
         public static final int ic_launcher=0x7f020018;
     }
     public static final class id {
-        public static final int action_settings=0x7f090006;
+        public static final int action_settings=0x7f090007;
         public static final int btnAddItem=0x7f090002;
-        public static final int cbItemCompleted=0x7f090004;
-        public static final int etItemName=0x7f090003;
+        public static final int cbItemCompleted=0x7f090005;
+        public static final int etItemName=0x7f090004;
         public static final int etNewItem=0x7f090001;
-        public static final int lvItems=0x7f090000;
-        public static final int tvItemName=0x7f090005;
+        public static final int llNewItem=0x7f090000;
+        public static final int lvItems=0x7f090003;
+        public static final int tvItemName=0x7f090006;
     }
     public static final class layout {
         public static final int activity_todo=0x7f030000;
@@ -110,6 +112,7 @@ public final class R {
          */
         public static final int AppTheme=0x7f070001;
         public static final int MyActionBar=0x7f070002;
+        public static final int MyActiveTodo=0x7f07000d;
         public static final int MyAlertDialog=0x7f070008;
         public static final int MyAlertDialogTitle=0x7f07000a;
         public static final int MyAlertDialogTitleText=0x7f07000b;

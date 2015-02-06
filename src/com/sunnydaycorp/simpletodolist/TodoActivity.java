@@ -3,7 +3,6 @@ package com.sunnydaycorp.simpletodolist;
 import java.util.ArrayList;
 
 import android.app.Activity;
-import android.app.DialogFragment;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
@@ -11,11 +10,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
-import android.widget.AdapterView.OnItemClickListener;
 
 public class TodoActivity extends Activity {
 
@@ -57,8 +56,7 @@ public class TodoActivity extends Activity {
 		lvTodoItems.setOnItemClickListener(new OnItemClickListener() {
 
 			@Override
-			public void onItemClick(AdapterView<?> parent, View clickView,
-					int position, long id) {
+			public void onItemClick(AdapterView<?> parent, View clickView, int position, long id) {
 				closeInputFromWindow();
 				showUpdateTodoDialog(id);
 			}
@@ -69,8 +67,7 @@ public class TodoActivity extends Activity {
 		lvTodoItems.setOnItemLongClickListener(new OnItemLongClickListener() {
 
 			@Override
-			public boolean onItemLongClick(AdapterView<?> parent, View view,
-					int position, long id) {
+			public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
 				// deleted todo item from data - set status as deleted
 				todoItemDAO.deleteTodoItem(id);
 				// refresh ListView
@@ -83,8 +80,8 @@ public class TodoActivity extends Activity {
 	}
 
 	private void showUpdateTodoDialog(long id) {
-		DialogFragment newFragment = new UpdateTodoFragment(this,
-				onTodoUpdatedListener, id);
+		UpdateTodoFragment newFragment = UpdateTodoFragment.newInstance(id);
+		newFragment.setOnUpdateTodoListener(onTodoUpdatedListener);
 		newFragment.show(getFragmentManager(), "updateTodoDialog");
 	}
 
@@ -92,8 +89,7 @@ public class TodoActivity extends Activity {
 		String name = etNewItemName.getText().toString().trim();
 
 		if (name.equals("")) {
-			Toast.makeText(getApplicationContext(),
-					"Please enter new todo name", Toast.LENGTH_SHORT).show();
+			Toast.makeText(getApplicationContext(), "Please enter new todo name", Toast.LENGTH_SHORT).show();
 			return;
 		} else {
 			// if not empty name then save new todo

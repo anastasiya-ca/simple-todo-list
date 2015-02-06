@@ -8,43 +8,40 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.sunnydaycorp.simpletodolist.TodoActivity" >
 
+    <LinearLayout
+        android:id="@+id/llNewItem"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/custom_background_color"
+        android:orientation="horizontal" >
+
+        <EditText
+            android:id="@+id/etNewItem"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:ems="10"
+            android:hint="@string/add_new_item_hint"
+            android:inputType="textNoSuggestions" >
+        </EditText>
+
+        <Button
+            android:id="@+id/btnAddItem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:onClick="addNewTodo"
+            android:text="@string/add_button_label" />
+    </LinearLayout>
+
     <ListView
         android:id="@+id/lvItems"
         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/llNewItem"
         android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_height="380dp"
         android:layout_centerHorizontal="true" >
-
     </ListView>
-    
-   <LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_alignParentBottom="true"
-	android:layout_alignParentLeft="true"
-    android:orientation="horizontal"
-    android:background="@color/custom_background_color" >
-    
-	   <EditText
-	        android:id="@+id/etNewItem"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:inputType="textNoSuggestions"
-	        android:ems="10"
-	        android:layout_weight="3"
-	        android:hint="@string/add_new_item_hint" >
-	
-	    </EditText>
-	
-	    <Button
-	        android:id="@+id/btnAddItem"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:layout_alignParentRight="true"
-	        android:text="@string/add_button_label"
-	        android:onClick="addNewTodo" />
 
-    </LinearLayout>
-    
 </RelativeLayout>

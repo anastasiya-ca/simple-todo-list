@@ -56,7 +56,6 @@
     </style>
     
     <style name = "MyAlertDialog" parent = "@android:style/Theme.Holo.Light.Dialog">
-        <item name="android:background">@color/custom_background_color</item>
         <item name="android:windowBackground">@android:color/transparent</item>
 		<item name="android:windowTitleStyle">@style/MyAlertDialogTitle</item>
 		<item name="android:borderlessButtonStyle">@style/MyButton</item>
@@ -79,6 +78,10 @@
     
     <style name = "MyCompletedTodo" parent = "@android:attr/textAppearanceListItemSmall">
         <item name="android:textColor">@color/custom_completed_todo_text_color</item>
+    </style>
+    
+    <style name = "MyActiveTodo" parent = "@android:attr/textAppearanceListItemSmall">
+        <item name="android:textColor">@color/custom_active_todo_text_color</item>
     </style>
 
 </resources>
